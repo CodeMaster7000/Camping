@@ -1,0 +1,590 @@
+html,
+body,
+div {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    height: 85vmin;
+    width: 85vmin;
+    border-radius: 100%;
+    transition: all 1s ease;
+    background-color: #2c3f4e;
+    border: 2vmin solid #141d24;
+}
+.container[class~="day"] {
+    border: 2vmin solid #1e7783;
+}
+.container:hover {
+  cursor: pointer;
+}
+.sky {
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+    z-index: 0;
+}
+.night {
+    background-color: #2c3f4e;
+    border-radius: 100%;
+    transition: all .5s ease-in-out;
+}
+.night .moon,
+.night .moon-shadow {
+    height: 10vmin;
+    width: 10vmin;
+    background-color: ghostwhite;
+    border-radius: 100%;
+    position: relative;
+    top: 12vmin;
+    left: 19vmin;
+    filter: blur(.09vmin);
+    transition: all .5s ease-in-out;
+}
+.day [class^="moon"] {
+    display: none;
+}
+.night .moon-shadow {
+    background-color: #2c3f4e;
+    left: 4vmin;
+    top: 0.1vmin;
+    animation-name: moon-shadow-fade;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in-out;
+    animation-duration: .5s;
+}
+@keyframes moon-shadow-fade {
+    0% {
+        background-color: #c7f6fe;
+    }
+    100% {
+        background-color: #2c3f4e;
+    }
+}
+.day [class^="star"] {
+    display: none;
+}
+.night .stars {
+    height: 1vmin;
+    width: 1vmin;
+}
+.night .star1,
+.night .star2,
+.night .star3,
+.night .star4,
+.night .star5,
+.night .star6,
+.night .star7,
+.night .star8,
+.night .star9,
+.night .star10,
+.night .star11,
+.night .star12 {
+    height: .55vmin;
+    width: .5vmin;
+    filter: blur(.18vmin);
+    background-color: ghostwhite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border-radius: 100%;
+    animation: twinkle 4s ease-in-out infinite forwards;
+}
+.night .star1 {
+    left: 40vmin;
+    top: 25vmin;
+    animation-delay: 1s;
+}
+.night .star2 {
+    left: 35vmin;
+    top: 10vmin;
+}
+.night .star3 {
+    left: 73vmin;
+    top: 13vmin;
+    animation-delay: 2s;
+
+}
+.night .star4 {
+    left: 10vmin;
+    top: 15vmin;
+    animation-delay: 3s;
+}
+.night .star5 {
+    left: 50vmin;
+    top: -5vmin;
+}
+.night .star6 {
+    left: 37vmin;
+    top: -3vmin;
+    animation-delay: 1s;
+}
+.night .star7 {
+    left: 62vmin;
+    top: 17vmin;
+}
+.night .star8 {
+    left: 15vmin;
+    top: 25vmin;
+    animation-delay: 2s;
+}
+.night .star9 {
+    left: 45vmin;
+    top: 10vmin;
+    animation-delay: 1s;
+}
+.night .star10 {
+    left: 60vmin;
+    top: 3vmin;
+}
+.night .star11 {
+    left: 20vmin;
+    top: 15vmin;
+    animation-delay: 3s;
+}
+.night .star12 {
+    left: 75vmin;
+    top: 20vmin;
+    animation-delay: 1s;
+}
+@keyframes twinkle {
+    0% {
+        filter: blur(0.2vmin);
+    }
+    50% {
+        filter: blur(0.05vmin);
+    }
+    100% {
+        filter: blur(0.2vmin);
+    }
+}
+.day {
+    border-radius: 100%;
+    background-color: #c7f6fe;
+    transition: all .5s ease-in-out;
+}
+.day .sun {
+    height: 16vmin;
+    width: 16vmin;
+    position: relative;
+    left: 16vmin;
+    top: 9vmin;
+}
+.day .sunshine {
+    height: 16vmin;
+    width: 16vmin;
+    border-radius: 100%;
+    background-color: #f9d81c46;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s ease-in-out;
+}
+.day .sunshine-inner {
+    height: 13vmin;
+    width: 13vmin;
+    border-radius: 100%;
+    background-color: #f9d81c7a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.day .sun-core {
+    height: 10vmin;
+    width: 10vmin;
+    border-radius: 100%;
+    background-color: #f9d71c;
+    filter: blur(0.05vmin);
+}
+.day .bird1,
+.day .bird2,
+.day .bird3 {
+    height: 3vmin;
+    width: 3vmin;
+    position: relative;
+    left: 40vmin;
+    transition: all .75s ease-in-out;
+}
+.day .bird1 {
+    top: 5vmin;
+}
+.day .bird2 {
+    left: 65vmin;
+    top: 5vmin;
+}
+.day .bird3 {
+    left: 57vmin;
+    bottom: 12vmin;
+}
+.day .wing1,
+.day .wing2 {
+    height: 3vmin;
+    width: 3vmin;
+    border-top: 0.75vmin solid rgb(80, 79, 79);
+    border-radius: 100%;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-out;
+    animation-duration: 0.75s;
+}
+.wing1 {
+    position: relative;
+    top: 3vmin;
+    right: 3vmin;
+    animation-name: flying-wing1;
+
+}
+.wing2 {
+    animation-name: flying-wing2;
+}
+@keyframes flying-wing1 {
+    0% {
+        transform: rotate(10deg);
+        width: 3vmin;
+    }
+    50% {
+        transform: rotate(-25deg);
+        width: 2vmin;
+        right: 1.8vmin;
+
+    }
+    100% {
+        transform: rotate(10deg);
+        width: 3vmin;
+        right: 3;
+    }
+}
+@keyframes flying-wing2 {
+    0% {
+        transform: rotate(-10deg);
+        width: 3vmin;
+    }
+    50% {
+        transform: rotate(25deg);
+        width: 2vmin;
+    }
+    100% {
+        transform: rotate(-10deg);
+        width: 3vmin;
+    }
+}
+.camp-scene {
+    height: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    position: relative;
+    bottom: 82vmin;
+}
+.camp__mountains {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: relative;
+    top: 18.5vmin;
+}
+.mountain1,
+.mountain2,
+.mountain3,
+.mountain4 {
+    transition: all .55s ease-in-out;
+}
+.mountain1 {
+    height: 35vmin;
+    width: 30vmin;
+    -webkit-clip-path: polygon(50% 1%, 0 100%, 100% 100%);
+    clip-path: polygon(50% 1%, 0 100%, 100% 100%);
+    background-color: #3c676d;
+}
+.mountain2 {
+    height: 35vmin;
+    width: 30vmin;
+    -webkit-clip-path: polygon(50% 1%, 50% 100%, 100% 100%);
+    clip-path: polygon(50% 1%, 50% 100%, 100% 100%);
+    background-color: black;
+}
+.mountain3 {
+    height: 25vmin;
+    width: 25vmin;
+    -webkit-clip-path: polygon(50% 1%, 0 100%, 100% 100%);
+    clip-path: polygon(50% 1%, 0 100%, 100% 100%);
+    background-color: #3c676d;
+}
+.mountain4 {
+    height: 25vmin;
+    width: 25vmin;
+    -webkit-clip-path: polygon(50% 1%, 50% 100%, 100% 100%);
+    clip-path: polygon(50% 1%, 50% 100%, 100% 100%);
+    background-color: black;
+}
+.day .mountain1,
+.day .mountain3 {
+    background-color: #c1c5d6;
+
+}
+.day .mountain2,
+.day .mountain4 {
+    background-color: #787fa0;
+}
+.camp__site {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    z-index: 1;
+}
+.tree1,
+.tree2,
+.tree3,
+.tree4,
+.tree5,
+.tree6 {
+    height: 18vmin;
+    width: 8vmin;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    align-items: center;
+}
+.tree2 {
+    height: 13vmin;
+    width: 7vmin;
+}
+.tree3 {
+    height: 15vmin;
+    width: 8vmin;
+}
+.tree4 {
+    height: 16vmin;
+    width: 10vmin;
+}
+.tree5 {
+    height: 14vmin;
+    width: 8vmin;
+}
+.tree6 {
+    height: 17vmin;
+    width: 9vmin;
+}
+.tree-top {
+    height: 30%;
+    width: 80%;
+    -webkit-clip-path: polygon(50% 0%, 0 100%, 100% 100%);
+    clip-path: polygon(50% 0%, 0 100%, 100% 100%);
+    background-color: #3f8f3a;
+    position: relative;
+    top: 0.3vmin;
+}
+.tree-top-s {
+    height: 100%;
+    width: 100%;
+    background-color: #2d7544;
+    -webkit-clip-path: polygon(50% 0%, 49% 100%, 100% 100%);
+    clip-path: polygon(50% 0%, 49% 100%, 100% 100%);
+}
+.tree-mid {
+    height: 25%;
+    width: 90%;
+    -webkit-clip-path: polygon(20% 0, 81% 0, 100% 100%, 0 100%);
+    clip-path: polygon(20% 0, 81% 0, 100% 100%, 0 100%);
+    background-color: #3f8f3a;
+    position: relative;
+    top: 0.2vmin;
+}
+.tree-mid-s {
+    height: 100%;
+    width: 100%;
+    background-color: #2d7544;
+    -webkit-clip-path: polygon(48% 0, 81% 0, 100% 100%, 48% 100%);
+    clip-path: polygon(48% 0, 81% 0, 100% 100%, 48% 100%);
+
+}
+.tree-bottom {
+    height: 30%;
+    width: 100%;
+    -webkit-clip-path: polygon(20% 0, 81% 0, 100% 100%, 0 100%);
+    clip-path: polygon(20% 0, 81% 0, 100% 100%, 0 100%);
+    background-color: #3f8f3a;
+}
+.tree-bottom-s {
+    height: 100%;
+    width: 100%;
+    background-color: #2d7544;
+    -webkit-clip-path: polygon(48% 0, 81% 0, 100% 100%, 48% 100%);
+    clip-path: polygon(48% 0, 81% 0, 100% 100%, 48% 100%);
+}
+.tree-bark {
+    height: 10%;
+    width: 15%;
+    background-color: #67544e;
+}
+.fire {
+    position: relative;
+    left: 2vmin;
+}
+.flame,
+.flame1,
+.flame2 {
+    height: 4vmin;
+    width: 3vmin;
+    position: relative;
+    top: 1vmin;
+    background-color: orange;
+    -webkit-clip-path: polygon(50% 0%, 76% 21%, 100% 43%, 100% 69%, 83% 95%, 52% 100%, 16% 94%, 0 67%, 0 43%, 24% 22%);
+    clip-path: polygon(50% 0%, 76% 21%, 100% 43%, 100% 69%, 83% 95%, 52% 100%, 16% 94%, 0 67%, 0 43%, 24% 22%);
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation-name: flames;
+    animation-duration: 4.5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+.flame1 {
+    height: 3.5vmin;
+    width: 2.5vmin;
+    background-color: orangered;
+}
+.flame2 {
+    height: 3vmin;
+    width: 1vmin;
+    background-color: red;
+}
+@keyframes flames {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.3);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.wood1,
+.wood2 {
+    height: 1.5vmin;
+    width: 4vmin;
+    position: relative;
+    background-color: rgb(128, 32, 32);
+    border-top: 0.5vmin solid rgb(97, 24, 24);
+}
+.wood1 {
+    background-color: rgb(128, 32, 32);
+    top: 1vmin;
+    transform: rotate(30deg);
+}
+.wood2 {
+    bottom: .5vmin;
+    right: 0.75vmin;
+    transform: rotate(-30deg);
+}
+.camp__tent {
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: flex-end;
+}
+.flap {
+    height: 12.5vmin;
+    width: 10vmin;
+    -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    background-color: #ff7f00;
+    position: relative;
+    left: 2.7vmin;
+}
+.flap1 {
+    height: 12.5vmin;
+    width: 10vmin;
+    -webkit-clip-path: polygon(50% 0%, 50% 100%, 100% 100%);
+    clip-path: polygon(50% 0%, 50% 100%, 100% 100%);
+    background-color: black;
+}
+.side {
+    height: 12.6vmin;
+    width: 15vmin;
+    background-color: #d46c03;
+    border-radius: 0.5vmin;
+    transform: skewX(22deg);
+}
+.camp__terrain {
+    height: 25vmin;
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.grass1,
+.grass2,
+.grass3,
+.grass4 {
+    height: 4vmin;
+    width: 72vmin;
+    background-color: #7ca353;
+    border-radius: 2vmin;
+    position: relative;
+}
+.grass2 {
+    width: 62vmin;
+    bottom: 0.2vmin;
+}
+.grass3 {
+    width: 52vmin;
+    bottom: 0.4vmin;
+
+}
+.grass4 {
+    width: 42vmin;
+    bottom: 0.6vmin;
+    z-index: 10;
+}
+.river1,
+.river2,
+.river3 {
+    height: 4vmin;
+    width: 14vmin;
+    background-color: #85ecff;
+    border-radius: 2vmin;
+    position: relative;
+    bottom: 11.1vmin;
+    left: 7.5vmin;
+}
+.river2 {
+    width: 20vmin;
+    left: 6vmin;
+    bottom: 11.4vmin;
+
+}
+.river3 {
+    width: 12vmin;
+    left: 4.5vmin;
+    bottom: 11.7vmin;
+}
+.soil1,
+.soil2 {
+    height: 4vmin;
+    width: 32vmin;
+    border-radius: 2vmin;
+    position: relative;
+    bottom: 9.2vmin;
+    z-index: 0;
+    background-color: #66472c;
+}
+.soil2 {
+    width: 22vmin;
+    bottom: 9.3vmin;
+}
